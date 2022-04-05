@@ -4,7 +4,7 @@ var reverseWords = function(s) {
     if (s.length < 1) return s;
 
     s = s.trim().split('').reverse();
-    console.log(s);
+    console.log('s>>',s);
 
     var ret = '';
     var wordStack = [];
@@ -31,7 +31,7 @@ var reverseWords = function(s) {
         ret += wordStack.pop();
     }
 
-    return ret;
+    return ret
 };
 
 console.log(reverseWords('the sky is blue'));
