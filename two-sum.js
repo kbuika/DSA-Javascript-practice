@@ -4,26 +4,26 @@ So the general gist of a two sum is that you have a list or an array of numbers 
  There should only be one solution to the problem from the list of numbers and a number can not be used twice.
 */
 
-let array = [1, 3, 10, 11, 14]
-let goal = 13
+let array = [1, 3, 10, 11, 14];
+let goal = 13;
 
 const twoSum = (arr, goal) => {
-    let hash = {};
-    for (let i = 0; i < arr.length; i++) {
-        let current = arr[i];
-        // get the difference between the current number and the goal
-        let goalDiff = goal - current;
-        // check if the difference is in the input array
-        if (hash[goalDiff] !== undefined) {
-            return [hash[goalDiff], i];
-        }
-        hash[current] = i;
+  let hash = {};
+  for (let i = 0; i < arr.length; i++) {
+    let current = arr[i];
+    // get the difference between the current number and the goal
+    let goalDiff = goal - current;
+    // check if the difference is in the input array
+    if (hash[goalDiff] !== undefined) {
+      return [hash[goalDiff], i];
     }
-    return null;
-}
+    hash[current] = i;
+  }
+  return null;
+};
 
 let res = twoSum(array, goal);
-console.log(res)
+console.log(res);
 
 // unoptimized solution with a time complexity of O(n^2)
 // const twoSum = (array, goal) => {
@@ -44,3 +44,18 @@ console.log(res)
 
 //       return twoIndexes;
 // }
+
+//other soln -- clearly written
+
+var twoSum = function (nums, target) {
+  const numMap = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (numMap[complement] !== undefined) {
+      return [numMap[complement], i];
+    }
+    numMap[nums[i]] = i;
+  }
+  return null;
+};
